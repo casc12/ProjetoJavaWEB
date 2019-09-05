@@ -10,10 +10,8 @@
 <body>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 	<c:import url="cabecalho.jsp"></c:import>
-	<!--  Cria o DAO -->
-	<jsp:useBean id="dao" class="br.com.caelum.agenda.dao.ContatoDao">
 		<table>
-			<c:forEach var="contato" items="${dao.lista }">
+			<c:forEach var="contato" items="${contatos}">
 				<tr>
 					<td>${contato.nome}</td>
 					<td>
@@ -29,11 +27,14 @@
 					<!--<td>${contato.dataNascimento.time}</td>-->
 					<td><fmt:formatDate value="${contato.dataNascimento.time}" 
 					pattern="dd/MM/yyyy" /></td>
+					
+					<td>
+						<a href="mvc?logica=RemoveContatoLogic&id=${contato.id}">Remover</a>
+					</td>
 				</tr>
 			
 			</c:forEach>
 		</table>
-	</jsp:useBean>
 	<c:import url="Rodape.jsp"></c:import>
 </body>
 </html>

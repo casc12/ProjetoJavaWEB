@@ -23,6 +23,9 @@ public class ContatoDao {
 		}
 	}
 
+	/*public ContatoDao(Connection connection) {
+		this.connection = connection;
+	}*/
 	public ContatoDao(Connection connection) {
 		this.connection = connection;
 	}
